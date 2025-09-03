@@ -12,6 +12,7 @@ useGSAP(()=>{
         },{
             duration:1,
             opacity:1
+            
         })
 },[])
 useGSAP(()=>{
@@ -22,9 +23,23 @@ useGSAP(()=>{
         },{
             duration:2,
             opacity:1,
-            delay:1
+            delay:0.5
         })
 },[])
+useGSAP(()=>{
+        gsap.fromTo("li",{
+            y:50,
+            duration:2,
+            ease:"sine.inOut"
+
+            
+        },{
+            y:0,
+
+            
+        })
+},[lists])
+
 function SetNewTask(event){
         setNewtask(event.target.value);
 }
@@ -53,7 +68,7 @@ function DeletTask(i){
                 <button onClick={AddNewTask} className=" button-class ">ADD</button>
             </div>
             <ul className="sm:flex flex-col  items-center ">               
-                { lists.map((list,index)=> <li onClick={()=>DeletTask(index)} className="li-class  " key={index}>{list} <span className="cursor-pointer">✖</span> </li> )} 
+                { lists.map((list,index)=> <li  className="li-class " key={index}>{list} <span onClick={()=>DeletTask(index)} className="cursor-pointer">✖</span> </li> )} 
             </ul>
     </div>
 </div>
