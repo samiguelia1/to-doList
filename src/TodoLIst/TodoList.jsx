@@ -6,10 +6,23 @@ function TodoList(){
 const [lists,setLists]=useState([]);
 const [newtask,setNewtask]=useState("");
 useGSAP(()=>{
-        gsap.from(".input-class",{
-            duration:1,
+        gsap.fromTo(".input-class",{
             opacity:0
 
+        },{
+            duration:1,
+            opacity:1
+        })
+},[])
+useGSAP(()=>{
+        gsap.fromTo(".button-class",{
+            opacity:0,
+           
+
+        },{
+            duration:2,
+            opacity:1,
+            delay:1
         })
 },[])
 function SetNewTask(event){
